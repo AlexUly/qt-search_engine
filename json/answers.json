@@ -1,0 +1,35 @@
+
+{
+    "answers": {
+        "request1": {
+            "result": [
+                false
+            ]
+        },
+        "request2": {
+            "relevance": {
+                "docId0": [
+                    2
+                ],
+                "docId1": [
+                    0
+                ],
+                "docId2": [
+                    1
+                ],
+                "rank0": [
+                    1.0
+                ],
+                "rank1": [
+                    0.699999988079071
+                ],
+                "rank2": [
+                    0.30000001192092896
+                ]
+            },
+            "result": [
+                true
+            ]
+        }
+    }
+}
