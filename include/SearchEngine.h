@@ -17,6 +17,7 @@ public:
     SearchServer() = default;
     ConverterJSON config;
     std::vector<std::vector<RelativeIndex>> search(const std::vector<std::string>& queries_input);
+    std::string stringResult;
 };
 
 

@@ -20,10 +20,13 @@ struct RelativeIndex{
 class ConverterJSON {
 public:
     int responseLimit = 5;
+    std::string engineName;
+    std::string engineVersion;
     ConverterJSON() = default;
     std::vector<std::string> GetTextDocuments(std::string path);
     int GetResponsesLimit() const;
     static std::vector<std::string> GetRequests(std::string path);
+    std::vector<std::string> GetRequestsFromGUI(std::string);
     void putAnswers(std::vector<std::vector<RelativeIndex>> answers);
 };
 

@@ -9,7 +9,6 @@
 std::vector<std::string> ConverterJSON::GetTextDocuments(std::string path) {
     std::vector<std::string> textDocuments;
     nlohmann::json config;
-
     std::ifstream fileConfig(path);
 
     try{
@@ -32,8 +31,10 @@ std::vector<std::string> ConverterJSON::GetTextDocuments(std::string path) {
 
     std::cout << "Engine name: ";
     std::cout << config["config"]["name"] << std::endl;
+    engineName = config["config"]["name"];
     std::cout  << "Version: ";
-    std::cout << config["config"]["name"] << std::endl;
+    std::cout << config["config"]["version"] << std::endl;
+    engineVersion = config["config"]["version"];
 
             for (auto it = config["files"].begin(); it != config["files"].end(); it++) {
                 if (!it.value().empty()) {
@@ -146,3 +147,16 @@ void ConverterJSON::putAnswers(std::vector<std::vector<RelativeIndex>> answers) 
     answersPath.close();
 }
 
+std::vector<std::string> ConverterJSON::GetRequestsFromGUI(std::string input){
+    std::vector<std::string> unique_queries;
+    std::string tempString;
+    std::string result;
+    std::istringstream iss(input);
+    do {
+        iss >> tempString;
+        result = result + " ";
+    }
+    while (!iss.eof());
+
+    return unique_queries;
+};

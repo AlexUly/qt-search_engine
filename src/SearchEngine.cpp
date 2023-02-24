@@ -17,7 +17,6 @@ requests.json
 заданных запросов
 */
 std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<std::string> &queries_input) {
-
     std::vector<std::vector<RelativeIndex>> relativeFreq;
     int responsesLimit = config.GetResponsesLimit();
 
@@ -114,9 +113,12 @@ std::vector<std::vector<RelativeIndex>> SearchServer::search(const std::vector<s
         }
 
     }
+    stringResult.clear();
     for (const auto &x: relativeFreq) {
         for (auto y: x) {
-            std::cout << "DocId: " <<  y.doc_id << " Rank: " << y.rank << std::endl;
+            stringResult = stringResult + "DocId: " + std::to_string(y.doc_id) + " Rank: " + std::to_string(y.rank) + "\n";
+           // std::cout << stringResult;
+           // std::cout << "DocId: " <<  y.doc_id << " Rank: " << y.rank << std::endl;
         }
     }
     return relativeFreq;
